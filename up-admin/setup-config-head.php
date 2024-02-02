@@ -5,22 +5,25 @@ if(file_exists("up-config.php")){
     exit();
 }
 if(isset($_POST["submit"])){
-    $database_nom = $_POST["database"];
+    $database_name = $_POST["database"];
     $user = $_POST["user"];
     $password = $_POST["password"];
     $address = $_POST["address"];
 
-   if($database_nom && $user && $password && $address){
-        $connection = mysqli_connect($address,"root","","");
+   if($database_name && $user && $address){
+        $connection = mysqli_connect($address,$user,$password,$database_name);
         if(!$connection){
             die("database connection failed : " . mysqli_connect_error());
         }
-        $query = "CREATE DATABASE " . $database_nom;
-        if(mysqli_query($connection, $query)){
-            echo "la base de données a été créée avec succès";
-        }else{
-            die("Il y a eu une erreur dans la création de la base de données: " . mysqli_error());
-        }
+
+        $myfile = fopen("up-config.php", "w") or die("Unable to write");
+        fwrite($myfile, "<?php\n");
+        $content = '$address = ' . "'$address'" . ";" . "\n";
+        fwrite($myfile, $content);
+        $content = '$database = ' . "'$database_name'" . ";" . "\n";
+        fwrite($myfile, $content);
+
+        header("location: install.php");
    }
    else{
         die("information insuffisante");

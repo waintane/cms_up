@@ -10,6 +10,9 @@
     <title>Document</title>
 </head>
 <body>
+
+    <!-- information -->
+
     <div class="container-setup-1">
         <p>bienvenue sur Up. avant de pouvoir continuer, vous aurez besoin de configurer votre base de données avec les éléments suivant</p>
         <ol>
@@ -19,6 +22,8 @@
         </ol>
         <button onclick="">Commencer</button>
     </div>
+
+    <!-- form login database -->
 
     <form action="setup-config.php" method="POST">
         <div>
