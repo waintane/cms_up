@@ -1,0 +1,3 @@
+<?php
+$userTemp = 'root';
+$passwordTemp = '';

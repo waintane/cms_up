@@ -1,4 +1,5 @@
 <?php
+// php pour se connecter la database choisie
 
 if(file_exists("up-config.php")){
     header("location: ../index.php");
@@ -21,6 +22,13 @@ if(isset($_POST["submit"])){
         $content = '$address = ' . "'$address'" . ";" . "\n";
         fwrite($myfile, $content);
         $content = '$database = ' . "'$database_name'" . ";" . "\n";
+        fwrite($myfile, $content);
+
+        $myfile = fopen("temp.php", "w") or die("Unable to write");
+        fwrite($myfile, "<?php\n");
+        $content = '$userTemp = ' . "'$user'" . ";" . "\n";
+        fwrite($myfile, $content);
+        $content = '$passwordTemp = ' . "'$password'" . ";" . "\n";
         fwrite($myfile, $content);
 
         header("location: install.php");
