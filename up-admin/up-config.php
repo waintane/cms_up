@@ -1,3 +1,5 @@
 <?php
 $address = 'localhost';
-$database = 'cmstest';
+$database = 'lesite';
+$title = 'lesite';
+$password = 'test';

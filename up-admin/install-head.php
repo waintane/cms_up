@@ -20,15 +20,29 @@ if(isset($_POST["submit"])){
     $newPassword = $_POST["password"];
     $passwordConfirm = $_POST["passwordConfirm"];
 
-    if($password != $passwordConfirm){
+    if(!($newPassword == $passwordConfirm)){
         header("location: install.php?msg=mot de passe non correspondant");
     }
-    
-    $myfile = fopen("up-config.php", "a") or die("unable to wrtie");
-    $content = '$title = ' . "'$title'" . ";" . "\n";
-    fwrite($myfile, $content);
 
     $connection = mysqli_connect($address,$userTemp,$passwordTemp,$database);
-
+    if(!$connection){
+        die("unable to connect");
+    }
+    $query = "CREATE USER '$newUser'@'%'";
     $result = mysqli_query($connection,$query);
+    $query = "SET PASSWORD FOR '$newUser'@'%' = PASSWORD('$newPassword')";
+    $result = mysqli_query($connection,$query);
+    $query = "GRANT ALL PRIVILEGES ON $database.* TO '$newUser'@'%' IDENTIFIED BY '$newPassword'";
+    $result = mysqli_query($connection,$query);
+
+    $myfile = fopen("up-config.php", "a") or die("unable to wrtie");
+    $content = '$title = '."'$title'".";"."\n";
+    fwrite($myfile, $content);
+    $content = '$password = '."'$newPassword'".";"."\n";
+    fwrite($myfile, $content);
+    $content = '$user = '."'$newUser'".";"."\n";
+
+    unlink("temp.php");
+
+    header("location: ./login.php");
 }
