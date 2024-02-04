@@ -33,7 +33,7 @@
         </div>
         <div>
             <label for="user">Identifiant</label>
-            <input type="text" name="user" id="user" placeholder="utilisateur">
+            <input type="text" name="user" id="user" placeholder="utilisateur" value="root">
             <p>Nom d'utilisateur</p>
         </div>
         <div>

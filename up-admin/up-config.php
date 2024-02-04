@@ -1,5 +1,6 @@
 <?php
 $address = 'localhost';
 $database = 'lesite';
-$title = 'lesite';
-$password = 'test';
+$userDatabase = 'root';
+$passwordDatabase = '';
+$config = true;
