@@ -4,4 +4,4 @@ $database = 'lesite';
 $userDatabase = 'root';
 $passwordDatabase = '';
 $config = true;
-$title = 'lesite';
+$title = 'oli site';

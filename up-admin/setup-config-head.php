@@ -1,5 +1,5 @@
 <?php
-// php pour se connecter la database choisie
+// php pour se connecter la database choisie et créer le up-config.php
 
 if(file_exists("up-config.php")){
     header("location: ../index.php");

@@ -31,11 +31,12 @@ if(isset($_POST["submit"])){
         id int(10) NOT NULL AUTO_INCREMENT,
         username varchar(35) NOT NULL,
         password varchar(255) NOT NULL,
+        role varchar(35) NOT NULL,
         PRIMARY KEY (Id)
         )";
     $result = mysqli_query($connection,$query);
-    $query = "INSERT INTO up_users (username,password)
-        VALUES ('$newUser','$hashedPassword')";
+    $query = "INSERT INTO up_users (username,password,role)
+        VALUES ('$newUser','$hashedPassword','admin')";
     $result = mysqli_query($connection,$query);
 
     $myfile = fopen("up-config.php","a") or die("unable to write"); 

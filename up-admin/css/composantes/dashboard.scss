@@ -1,0 +1,18 @@
+.dashboard{
+   display: grid;
+   grid-template-columns: 0.2fr 1fr; 
+   header{
+    display: flex;
+    flex-direction: column;
+    nav{
+        width: 10vw;
+        a{
+            display: block;
+            width: 100%;
+        }
+    }
+   }
+   main{
+    width: 90vw;
+   }
+}

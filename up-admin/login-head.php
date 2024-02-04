@@ -23,9 +23,11 @@ if(isset($_POST["submit"])){
         $row = mysqli_fetch_assoc($result);
         $hash = $row["password"];
         $id = $row["id"];
+        $role = $row["role"];
         if(password_verify($password, $hash)){
             $_SESSION["loggedin"] = TRUE;
             $_SESSION["name"] = $username;
+            $_SESSION["role"] = $role;
             $_SESSION["id"] = $id;
             header("location: index.php");
         }else{
