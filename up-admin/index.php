@@ -1,3 +1,5 @@
+<?php include "index-head.php"; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +8,5 @@
     <title>Document</title>
 </head>
 <body>
-    up-admin
 </body>
 </html>

@@ -19,13 +19,13 @@ if(isset($_POST["submit"])){
 
         $myfile = fopen("up-config.php", "w") or die("Unable to write");
         fwrite($myfile, "<?php\n");
-        $content = '$address = ' . "'$address'" . ";" . "\n";
+        $content = '$address = '."'$address';\n";
         fwrite($myfile, $content);
-        $content = '$database = ' . "'$database_name'" . ";" . "\n";
+        $content = '$database = '."'$database_name';\n";
         fwrite($myfile, $content);
-        $content = '$userDatabase = ' . "'$user'" . ";" . "\n";
+        $content = '$userDatabase = '."'$user';\n";
         fwrite($myfile, $content);
-        $content = '$passwordDatabase = ' . "'$password'" . ";" . "\n";
+        $content = '$passwordDatabase = '."'$password';\n";
         fwrite($myfile, $content);
         
         header("location: install.php");
